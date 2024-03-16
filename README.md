@@ -77,6 +77,44 @@
 ![image](https://github.com/apohorai/zosasm/assets/11768849/9e4d2829-6686-4003-bab0-2839a57d4333)
 ![image](https://github.com/apohorai/zosasm/assets/11768849/c5ca6014-5551-4544-b7a0-e54c88d3b59b)
 ![image](https://github.com/apohorai/zosasm/assets/11768849/5cd6e2ac-62cd-4f55-864d-3b0263548ecf)
+![image](https://github.com/apohorai/zosasm/assets/11768849/224643e5-d62d-4a4a-8458-d369c5094bfb)
+![image](https://github.com/apohorai/zosasm/assets/11768849/0164c1f7-e860-4b55-a77d-0be301fe1d9a)
+![image](https://github.com/apohorai/zosasm/assets/11768849/10bcbb41-2af4-4a8a-b544-b18bec73d429)
+
+#relative addressing
+![image](https://github.com/apohorai/zosasm/assets/11768849/e04adccb-5d93-44a8-8d47-eb9df2fb0d26)
+![image](https://github.com/apohorai/zosasm/assets/11768849/c605120b-8e93-4f95-a180-83b321a05b88)
+![image](https://github.com/apohorai/zosasm/assets/11768849/9d158104-97b4-4abe-98f8-efe488986c3d)
+![image](https://github.com/apohorai/zosasm/assets/11768849/573f3520-e321-4471-82ee-903e952a9599)
+![image](https://github.com/apohorai/zosasm/assets/11768849/773e5aab-b028-498b-aacc-6f6fb05fe7f8)
+![image](https://github.com/apohorai/zosasm/assets/11768849/0369c30b-a11f-44a6-bf23-23530386e9f7)
+![image](https://github.com/apohorai/zosasm/assets/11768849/b79d2858-10e3-48c7-95a6-cf2b0490fbdc)
+
+#instructions
+![image](https://github.com/apohorai/zosasm/assets/11768849/eca532ad-cfcd-403d-ac83-ac437598b65a)
+![image](https://github.com/apohorai/zosasm/assets/11768849/76f0e922-3a3b-40d3-8567-d3aa90087538)
+![image](https://github.com/apohorai/zosasm/assets/11768849/a291fbdb-5218-4822-921a-27a30c60ff43)
+![image](https://github.com/apohorai/zosasm/assets/11768849/be059978-f356-41af-bfb8-9cb10659e79f)
+![image](https://github.com/apohorai/zosasm/assets/11768849/ccc391bc-096b-4999-8df2-8c4d1ac121fa)
+![image](https://github.com/apohorai/zosasm/assets/11768849/d17f896d-d55b-42f8-a4c7-c89491685982)
+![image](https://github.com/apohorai/zosasm/assets/11768849/637ee223-6ef9-4168-ac90-cbdb1243a246)
+![image](https://github.com/apohorai/zosasm/assets/11768849/d9cf7053-21fd-497b-aaeb-7a5cacd5b273)
+![image](https://github.com/apohorai/zosasm/assets/11768849/29d88d08-7ecc-434b-ac71-e0d4590cd4f4)
+![image](https://github.com/apohorai/zosasm/assets/11768849/2c243bf8-68e2-4562-8175-48936935ab8d)
+![image](https://github.com/apohorai/zosasm/assets/11768849/cf9b1781-57c8-4c08-8e18-0aaf14ae8bd3)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
