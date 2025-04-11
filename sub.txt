@@ -1,0 +1,713 @@
+Numbering Systems
+
+I know we're all really excited to dive into Assembler code, writing programs, working with data, all that fun stuff.
+But before we can do much of anything, we really need to cover basic numbering systems.
+And don't worry, this isn't going to require a mathematics degree, are learning calculus all over again.
+It's just a while.
+We tend to think of numbers as being base ten, where once you get to ten in a digit, you increment the next higher-order digit and then sit that digit back to zero.
+Computers, at least most of them operate in binary, either a one or a zero.
+That's certainly a very logical method of operating everything either is or isn't.
+But to make things a little more compact and easier for us to work with, binary has a close cousin, hexadecimal.
+So in this section we'll talk about numbering systems in general and how binary and hexadecimal or simply hex all interrelate.
+So you're probably pretty familiar with decimal numbers.
+There's ten digits, zero through 9, 10 is the base.
+And numbers can be represented by using powers of the base.
+So the number 1235 or 1,235 is made up of 1 thousand, 2 hundreds, and 35 or 3 tens and 5 ones.
+Put another way, 1 times 10 to the third for the thousands, 2 times 10 to the second for the hundreds, 3 times 10 to the one, or just 10, and 5 times 10 to the zeroth power, or just 5 times 1.
+As we mentioned before, computers store numbers in binary, so it's all ones and zeros and we can think of this as being a base two number system and we can work with numbers by using powers of two.
+So consider the number 1010011 in binary.
+How do we translate that into decimal? We start from the right side with one times two to the zeroth, then one times two to the first, and then zero times two to the second.
+And then zero times two to the third.
+One times two to the fourth, zero times two to the fifth, and one times two to the sixth.
+Now, we've got to add up all these values.
+And thankfully, there's no need to add up anything multiplied by zero because it's zero.
+So let's just find the ones where there's a one that's two to the sixth, that's 64.
+2 to the fourth, that's 16.
+2 to the first, that's 2.
+2 to the zeroth is just 1.
+That gives us 83.
+Now, you won't need to do these types of calculations in your head every time for the bigger values, you'll use a converter or a calculator.
+For the numbers that come up a lot, you'll just learn their equivalents just by working with them again and again and again and again.
+Now, the problem with binary is that as you can see, a fairly simple number takes up a whole lot of space.
+We did all that work to wind up with 83.
+83.
+It's kinda anticlimactic.
+If you asked me, if we want a big number like that, 1,235 from the decimal example, we'd wind up with 1001 1010 011.
+That's 11 digits.
+For three decimals.
+Computers have memory, they have to be considered Of we have our own memory, but also just the time it takes to get through all those syllables.
+In binary.
+That's just too much.
+I've got other things to do today.
+And what genius decided that zero should get two syllables anyway.
+Come on.
+Clearly, we need a new way to address a binary data that's also a little more compact.
+Enter hexadecimal.
+In hexadecimal, we use 16 digits instead of ten or two.
+So we'll use zero through nine to represent zero through nine, and A through F to represent 10 through 15.
+In other words, after nine comes A and we won't rollover and increment the next column until we've hit F.
+So if we see 24A, that's two times 16 to the second, got that, plus four times 16, plus 10.
+10 because A is what comes after 9 and in decimal, ten comes after nine.
+That all make sense.
+So we've got 512 plus 64 plus 10, or 586.
+And by the way, sometimes when you hear me reading off hex digits, I'll use the phonetic version that a lot of people have adopted.
+So instead of A, B, C, D, E, F, I'll say Able, Baker, Charlie, Dog, Easy, Fox.
+This is just good practice because when you're reading off digits to someone over the phone or on a noisy test floor.
+A can sound a lot like eight.
+And BCDE can kind of blend together and maybe sound like a three.
+So when I see 24A, I'll probably read it as Two Four Able or 24 Able.
+I'm pointing that out because I learned hexadecimal from a book that didn't mention this.
+The first time I heard people talking about bakers dogs and foxes.
+It really confused me and I don't want you to be as confused as I was.
+Now, the good thing about hexadecimal is that we can represent four binary digits in a single hexadecimal digit, no wasted space.
+So any combination of binary bits, there's a hexadecimal digit for that.
+When we simply convert to decimal, will eventually wind up needing that second column and will need to go up to 15.
+Hexadecimal is far more efficient here.
+Let's consider our old friend, 1,235.
+1001 1010 011.
+Now, I need to take a nap.
+That felt like 5 hours.
+What we can do is take that binary representation and break it into groups of four digits and we'll append a zero at the beginning, just so it's 12 digits, a multiple of four and not 11 digits.
+Now we've got 0100 because we've put the one in the beginning, 1101 and 0011.
+That's Four Dog Three.
+I know that because I've been working with hex for awhile, but there's also a table we had on that last chart.
+And eventually you won't even need to look it up either.
+That's three digits in hex for some than it took four digits in decimal and 11 in binary.
+So suffice to say, computers will keep working in binary, humans will keep working in decimal.
+But when a human needs to talk to a computer, there's a good chance we'll be doing it in hexadecimal.
+In the next video, we'll convert a decimal number to hexadecimal.
+
+Decimal to hexadecimal conversion 
+
+In this section, we're going to convert a number from decimal to hexadecimal.
+And we're going to do it a little bit differently than before.
+We're going to start with the decimal number n and then divide it by 16, giving Q, the quotient and R, the remainder, so R, the remainder, will always be a digit from 0 to 15.
+See where this is going? R becomes the rightmost hexadecimal digit, or at least the digit to the left of the last digit we processed.
+Since we're going to keep doing this until we run out of numbers.
+And we'll take the remainder value and replace it with the hex value.
+So 10 becomes Able, 11 becomes Baker, and so on.
+When , our quotient, becomes zero, we stop.
+When it's not zero.
+We make our number the quotient and continue, keep dividing it by 16.
+So let's take 6,823.
+6, 8, 2, 3.
+Let's tackle this step-by-step.
+First, we divide the whole thing by 16 and then we get 426 with a remainder of seven.
+Let's put that seven over here down in the right-most digit, and seven is less than ten.
+No need to convert it.
+Then we take that remainder, 426.
+Make that our number, divide that by 16.
+Quotient of 26, remainder of 10.
+Take the 10.
+That converts to A or Able, slide it down here and we keep going with the remainder.
+26/16, that's 1 with a remainder of 10.
+So that 10 also becomes Able, A.
+There's really no need to do this, but 1/16 is 0 with a remainder of 1.
+The 1 goes down here and we get a 0 for the quotient, so we stop, making our hexadecimal conversion of 6823: One Able, Able, Seven.
+So, 6823 is the number we might present in a form to a user.
+If we're looking at a readout of computer data in hex, we would see 1AA7, One Able, Able Seven.
+If we need to go from decimal to binary, it's oftentimes easier to go hexadecimal first and then just map those digits with the four binary digits.
+It represents.
+I know that's nothing that seems particularly easy or natural right now, but I want to make sure you get all the connections between all these numbers systems in mind because it will definitely come in handy later on.
+In the next section, we'll start doing some basic arithmetic.
+
+Basic arithmetic
+I told you that we weren't going to need any advanced calculus and I'm going to stay true to my word.
+But in order to get into basic number crunching will have to go way back to the days of carrying and borrowing numbers.
+Oh yeah.
+Did that just make the back of your brain tingle like it did mine? Let's take a look at a few examples of hexadecimal addition and subtraction.
+Two Baker plus 53.
+Taking the rightmost column, Baker plus 3 in decimal is 11 plus 3, that's 14 or hex E, Easy.
+Then the next column, 2 plus 5, that's 7 or 7.
+So Seven Easy.
+And if we take it a step further and convert it back to binary, we've got 0111, 1110.
+0111 is 7.
+1110 is E.
+Easy.
+And yes, that is a binary palindrome right there.
+Whenever you see one of those, make a wish.
+Oh, you wished for another example? I like your style.
+How about Two Baker plus Four Able? Baker plus Able is 11 plus 10, that's 21.
+And that's more than we can represent in a single hexadecimal digit.
+It actually translates to hexadecimal 15.
+So we'll take the 5, leave that in the rightmost position.
+And just like in basic math, will carry the one, leaving us with two plus four plus the one we carried, that's seven, giving us 75.
+75.
+Now, it's important to note that this is 75 hex, 75 hex.
+Just because there aren't any letters in here doesn't always mean it's decimal.
+We shouldn't make assumptions.
+In fact, 1010 0011 could also very well be a decimal or even a hexadecimal number.
+And later on we'll get into how to definitively spell out what number system a number is based on.
+But for right now, we just have to remember that this is 75 in hex and not decimal.
+And because it's hexadecimal, we can take 7 and 5 and convert them to their binary forms, getting 0111 0101.
+Here's the same numbers being added in decimal, hexadecimal and binary.
+If we're converting by hand, it's often easier to convert the hex and then back to binary.
+I know that when I'm dealing with that many columns and just two types of digits, I'm prone to make mistakes.
+And going into hex means fewer steps for the actual additional steps.
+So just something to keep in mind.
+You probably saw this coming a mile away, but what about subtraction like Seven Able minus Two Baker.
+Well, right off the bat, Able is less than Baker, so we need to borrow from that next column over.
+We're going to borrow a hexadecimal 10, basically adding a 1 to the right of that Able, which gives us One Able minus Baker.
+that's 26 -11, which equals 15, which is hexadecimal F.
+So we're back to one digit and we're feeling good again.
+Then we've got 7 minus 2 minus the 1 that we just borrowed, leaving us with 4.
+So Four Fox, 4F and converting that to binary, that gives us 0100 1111.
+What about when the result of a subtraction is a negative number? You may be relieved or disappointed to know that this will not result in the computer catching on fire or something like that.
+So if we've got Two Baker minus Seven Able.
+We need to first notice that Two Baker is less than Seven Able.
+So we'll flip them around and slap a minus sign on the front of whatever we get from the last example, we learned that Seven Able minus Two Baker equals Four Fox.
+Therefore Two Baker minus Seven Able equals negative Four Fox.
+It's pretty simple, but representing that in computer memory requires some special thinking.
+The IBM z/Architecture, which is the architecture of the systems that we'll be working on, represents binary integers in fixed length fields, meaning that there's a space and memory that won't grow or shrink.
+It's a container made just for that data.
+When we have 16 binary digits or bits, that's called a halfword.
+And we already know that 16 binary digits can be reduced to four hexadecimal digits, like Zero Zero Five Baker.
+32 bits is called a fullword, like 0000 00 Five Baker and 64 bits is, you guessed it, a doubleword.
+So just like the thing I just said with the additional eight zeros in the front of that, that makes it a doubleword.
+And binary digits can be signed or unsigned.
+Signed integers can be positive or negative.
+Unsigned and positive integers are represented pretty much as you'd expect.
+Negative numbers are represented using something called two's complement notation.
+Which is something we'll cover in greater detail real soon.
+When it comes to unsigned binary integers, we can represent around 65,000 numbers, all zeros to all F's.
+That's our range.
+And you can see how that translates to hexadecimal and decimal and binary right here.
+If we double that into an unsigned fullword, we can represent a much larger range of numbers.
+Keep going to a doubleword and you get the idea.
+Now onto signed integers where we wanna be able to denote positive and negative in a signed integer, the leftmost digit indicates the sign zero for positive, one for negative, and then the remaining digits indicates the number itself.
+Positive binary integers are presented as you'd expect them, and negative integers are in two's complement with the bits sign of 1 out front.
+If you're not familiar with two's complement, we invert each bit of the positive integer and then add 1.
+And the same process will convert a negative integer into a positive.
+So let's see that in practice.
+Let's take negative 95.
+We can convert that to hex and then to binary and add one.
+This is our negative 95, and here it is in hexadecimal.
+And if we want to make this a fullword or a doubleword, all we need to do is extend the sign bit to the left.
+Since this is a negative number, we extend the one in binary or the F in hex.
+And if it were a positive number, we would just extend the zero over.
+Let's take that negative 95 and flip it back to a positive 95.
+Negative 95 in hexadecimal is Fox Fox Able One.
+In binary, that's...
+I'm not going to read it, it's this.
+Invert the bits, add 1, that gives us 0000, 0000, 0101, 1111.
+A signed binary integer can represent numbers from around 32,000 to negative 32,000, anywhere from negative two to the 15th, two to the 15th minus 1.
+A few examples of that are listed here.
+And bigger numbers for the fullwords, and even bigger numbers for the doublewords.
+That's all we need to know about working with signed and unsigned integers and basic arithmetic for Assembler.
+I know that for some it's a refresher.
+For others, it might be worth stepping through some of those examples one by one just to make sure you caught the process.
+When you're ready.
+We're going to keep going into the next section where we're going to learn about actual computer components and just how to use all of this bit and byte talk that we just covered.
+
+memory
+
+Assembler programming is different from programming in higher-level languages because in Assembler, we're writing machine instructions.
+That means that the Assembler programmer that's us, needs to know a lot more about how the computer itself works.
+In this unit, we'll look at the IBM z/Architecture.
+That's the rules and methods that an IBM z mainframe uses to process data and instructions.
+We won't be covering all aspects of the architecture only what's necessary to start coding Assembler application programs.
+Here's how we're going to tackle this.
+We'll start out with the main components of a z/Architecture computer which an Assembler program interacts with.
+That includes the memory, central processing unit or CPU, the Program Status Word, registers, and instructions.
+So let's jump right into memory.
+In IBM z/Architecture, memory, which is often referred to as storage, is organized into eight bit units called bytes.
+Eight bits makes up a byte that's byte with a y not an I just in case the closed captioning doesn't reflect that.
+Both data and instructions are stored in bytes, in memory.
+And as the number of bytes it starts adding up, they can be referred to as kilobytes and megabytes and gigabytes and so on.
+So it does spell it all out.
+These are the powers of two units widely used in computing.
+Two to the tenth bytes is a kilobyte, able to represent up to 1024 in decimal.
+Two to the 20th is a megabyte, two to the 30th is a gigabyte, and so on all the way up to exabytes, which can represent an absolutely enormous value.
+Between those values, there are some other values that come up quite frequently in the IBM z/Architecture, and they're listed here and they include two to the 15th, that's 32 KB, two to the 16th, that's 64 KB, two to the 24th, 16 MB.
+And we'll also see 2 GB, 4 GB, 4 exabytes, and 16 exabytes.
+The meanings of those specific values will start to become a lot more evident as we progress through this course.
+I just wanted to spell out these things because they don't always fall neatly on those multiples of ten power boundaries.
+Here we see a few bits making up a byte.
+Bits are numbered zero through seven, starting with the leftmost or the most significant digit, and then going towards the lesser significant digits on the right.
+Well, sometimes call these the higher-order bits on the left and the lower order bits on the right.
+This might seem either obvious or counter-intuitive, and not all architectures look at numbers the same way.
+Some other computers go right to left, but we'll be going left to right.
+When we're evaluating binary digits in memory, a byte can hold 256 different possible combinations.
+Eight bits means 256 possible combinations of ones and zeros in there.
+Another way of looking at this is that it can hold from hexadecimal Zero Zero to hexadecimal Fox Fox.
+Certain byte values represent characters like capital A, capital W, the character five, asterisk, ampersand, most characters you can type or might want to represent.
+By default, z/Architecture uses the EBCDIC encoding, that's EBCDIC, to represent characters.
+It also supports ASCII, but you'll mostly be seeing it used for EBCDIC here.
+And if you're curious, that's an acronym for Extended Binary Coded Decimal Interchange Code.
+So yeah, that means if we're looking at some EBCDIC data stored in hex, we can translate the hexadecimal number, The representing numbers and letters by using this table right here, e.g. A, B, C: those are C1 through C9.
+So the characters A, B, C, represented in hex, would be Charlie One, Charlie Two, Charlie Three.
+Now, I can hear some of you saying, I don't get it.
+I thought hexadecimal went up to F.
+Why, all of a sudden, do we need two hex characters to say what we could do with just one.
+Well, we need to make the distinction between the value of A, which represents 1010 in binary, and the letter A, which represents the first letter in the word Apple, because those are two entirely different things.
+In fact, once we get to the second letter in Apple, we've run headfirst into the need for coded characters, along with values.
+Some other characters besides letters and numbers you might want to know are: 40, that's the space.
+Five Charlie, that's the asterisk.
+61 is the forward slash.
+So if you're looking at EBCDIC data and come across 615 Charlie, that's a forward slash asterisk, sometimes called a slash splat, which usually signals the start of a comment.
+Though not always.
+I mentioned that we can also work in ASCII and this is not typical.
+Here it is.
+30 through 39 represents the numbers.
+41 through 5A for uppercase characters, 61 through Seven, Able for lowercase.
+So uppercase A, B, C would be 414243.
+And for ASCII characters, here's how they get encoded.
+Notice how byte's interpretation depends on the system we use.
+Remember how a space was hex 40 in EBCDIC? In ASCII, it's hex 20.
+I've seen it happen a few times where a programmer was trying to read some data and got back some truly bizarre values, couldn't make sense of it, but could verify that they were looking at the right data in the right location.
+It turns out they assumed it was EBCDIC, but the data loaded in there was actually ASCII.
+Happens to the best of us.
+What is the meaning of a byte? I'm not getting philosophical.
+This is actually quite practical here.
+The meaning of a byte really depends on how it's used.
+E.g., two bytes containing hexadecimal 605 Charlie can be interpreted as a positive 24,668, if we interpret it as a halfword binary integer, or, a dash asterisk, if we assume it's EBCDIC, a back tick backslash, if we assume it's ASCII.
+And, if we see it as a packed decimal, something we'll talk about later, it would be a positive 605.
+And remember when we said that bytes can be used to represent data and instructions? It could also be interpreted as the instruction to store a floating point register into memory.
+Or if we see Fox One, Fox Zero EBCDIC, That's 10.
+As a binary halfword, it would be a negative 3,600.
+So if we really mean ten and not the characters one, followed by zero, we must first convert them into a binary integer, ten or 000A.
+We'll get into this in much greater detail later on.
+If you're not new to programming, you've probably run into a situation where you tried to take some input and do some math with it.
+And the language got angry saying that it expected an integer.
+And you're like, well that is an integer.
+But it doesn't know that because it's just interpreting it as a character representation, not the numerical value.
+That's what we're trying to avoid here.
+Bytes in memory are arranged so that each byte is individually numbered, starting at zero.
+The number associated with each byte is called the memory address, or simply the address.
+Memory can be thought of as a string of bytes.
+And note that only bytes have addresses.
+The bits within a byte do not have their own addresses.
+I realize I'm reading straight off the slide here, but if you have the time, it might be worth pausing here and looking at these four statements and thinking about what they mean because they really form the foundation of a lot of what we're going to get into.
+So just look at these and make sure you're clear on this before moving on.
+A lot of what we get into depends on this.
+With that in mind, this is how memory appears conceptually to an Assembler program.
+Each byte has its own address starting at zero.
+And as we increment the address that lands us at the next byte.
+And those bytes are almost always expressed in hexadecimal.
+We will group these bytes into, well, groups of bytes.
+Groups of bytes.
+When there's two bytes, that's a halfword.
+Four bytes is a word, a is a doubleword, 16 is a quad word.
+It's important once again to mention that the address starts on the leftmost byte.
+So if you have a fullword stored at A00, A01, A02, A03 (4 bytes), the address for the fullword is A00.
+Are Able Zero Zero because that's the leftmost byte.
+Some instructions will require that the group address is a multiple of its size in bytes.
+E.g., if we're working with a fullword, which is made up of four bytes, it will need to start at an address which is a multiple of four.
+When we do this, the group is said to be aligned.
+I'm realized, I'm hitting this button quite a bit, but the reasoning for this will become quite evident later on.
+You just have to trust me here.
+Here's what an example of a line groups might look like.
+Notice that the quadword can only start at a zero if we want it to be aligned.
+But a doubleword can start at Eight Able Zero or Eight Able Eight, or any other address ending with zero or eight.
+And that pattern continues for the fullword and the halfword.
+We don't just store data in memory.
+We also store programs, instructions.
+This is part of the architecture which is based on the first modern computer architecture.
+Which all modern computer architectures are based off of known as the Von Neumann architecture.
+John Von Neumann was a mathematician at the Institute of Advanced Study in Princeton, New Jersey.
+Go New Jersey.
+He and his team were tasked with designing a system where programs and data could be processed as some sort of computing device.
+That means we've got instructions and data stored all throughout memory.
+How do you keep that straight? I'm so glad you asked, but we'll have to wait until the next section about the CPU to find out.
+
+
+CPU 
+The central processing unit or CPU, is literally the computer, as in it's the thing that does the computing.
+It's the component that executes program instructions.
+In addition to executing program instructions, it also has these things called registers and we'll talk about those in a little bit.
+But registers are a very fast form of memory.
+The CPU's registers are the Program Status Word or the PSW, which is used to control program execution.
+and then general registers which can be used for arithmetic and logical operations, as well as to hold the addresses of data and instructions.
+There's also floating point registers, control registers, access registers, vector registers.
+We won't touch on a lot of those in this course.
+But once you're done covering the fundamentals, you'll be able to go back and just add those on top of your fundamental knowledge pretty easily.
+We just don't want to hit you with too much early on when you're trying to learn those fundamentals, that whole learning curve thing.
+Let's start with those general purpose registers and then we'll get to the PSW.
+There are 16 general registers, Zero through Fox in hex.
+And usually, instead of saying register eight or register nine, we're going to save ourselves some space and syllables and just say R1, R2, R8, R15, etc.
+So again, even though their addresses are in hex and they're 16 of them will usually refer to them in decimal.
+And each general register is 64 bits in length.
+Registers look like this.
+Graphically.
+I mean.
+This is a 64-bit register, and here it is partitioned into 2 32-bit parts.
+So we've got this really fast memory.
+What's it for? Two things, primarily.
+First, arithmetic and logical operations, since registers can contain binary integers for arithmetic calculations, or bit strings for logical operations, but also holding addresses of data and instructions.
+And yeah, you know what I'm gonna say? We're gonna see a lot more of that in just a little bit.
+Onto that PSW.
+The PSW has lots and lots of fields.
+But fortunately, at least for right now, we only need to know about three of them.
+And that's the Instruction Address, the Condition Code and the Program Mask.
+Most important for us right now is the IA, the Instruction Address, the PSW is a 128 bit register.
+The last half of those 128 bits is the instruction address, the IA.
+The PSW always has the address of the next instruction to be executed by the CPU.
+That's what defines the content of the memory location as an instruction.
+By that, I mean, if we print or display characters in memory, there'll be treated as characters.
+If we try to add or subtract, will be treated as numbers.
+If we point the CPU to them by way of the PSW, it will try to execute them as instructions.
+And the way a CPU executes instructions is: first the memory address of the first instruction to be executed is placed in the PSW.
+Then the instruction the PSW is pointing to is retrieved from memory by the CPU.
+Then the PSW is updated to point to the next instruction in memory.
+Then step four, the retrieved instruction is executed.
+After that, if the retrieved instruction didn't cause a branch or a go-to, we go back to step two and repeat.
+The CPU, retrieves the instruction pointed to by the PSW and the CPU just moves sequentially to the next instruction, which is what it normally does.
+If we're branching somewhere in our program, then the address we're branching to goes into the PSW.
+We just made a big leap in our understanding right here.
+I don't want to make sure we all appreciate this.
+We're talking about the CPU actually processing instructions, but it's very likely that you're feeling like we miss something here.
+Like how did that program get there in the first place? What makes it stop? What do these instructions even look like? Well, an instruction, at least in memory, might look something like this.
+It starts out with an operation code that's the operation to be performed and it's sometimes shortened to just opcode.
+Examples of an operation code might be Branch, Add or Multiply.
+And the second part is the operand or operands if there's more than one.
+This is what the operation is acting on, almost like a subject predicate relationship in a sentence.
+So if we were to say "Branch to Calculate_Tax", the "Calculate_Tax" part is the operand (there's one).
+And "Add Tax to Register 3", Add is the operation and the bytes at a field called Tax and Register 3 are the two operands in there.
+Same with "Subtract Debit from Balance".
+Just looking at this, you should be pretty comfortable with spotting the operation, the operands in there.
+Next, we'll take a look at just what these look like in the computer's memory.
+Branch is just one operation and one operand, so it looks like this.
+"Add Tax to Register 3", we've got two operands and notice that order, more on that later.
+Same with the third example except it's not using a register, so it's got two addresses listed in there.
+How do we encode an operand's address? The most obvious is just putting the address right in there, the actual address.
+Problem with that is that IBM z/Architecture does 64-bit addressing, that's eight bytes.
+That can get pretty long.
+This might have been an option on some earlier systems where there was not a lot of memory to go around, but it is certainly not on modern systems.
+We've run into another issue with program relocation.
+The program tells us to branch to Calc_Tax, which is at 2 Able 080.
+And Calc_Tax references the Tax field at 2 Able 0 Charlie 0.
+These result in some large instructions, but they should still work, but programs don't always run at the same address, do they? What happens if the program is moved? If the program were to run starting at address 78000, we'd have to update all of these addresses and that's too much work, assuming our actual program is more than three lines of code.
+To address this, and yes, that was a very clever pun, thank you for noticing.
+To address this, we use something called offsets.
+By using offsets instead of hard coded addresses, we can address anything regardless of where the program actually starts in memory.
+Notice how we're running this at 2 Able 000.
+Well, the offset starts at 000 and we simply work with the relative offset.
+And now we don't have to worry about representing the actual address.
+IBM z/Architecture computers use offsets for addressing operands and this mechanism is known as base-displacement.
+Get ready to see that a whole lot.
+It consists of using registers to point to an address called a base.
+And then we use offsets to displace from the base.
+We'll learn more about base-displacement in the very next section.
+
+Base displacement
+A program is almost definitely going to use offsets to refer to data or instructions in memory.
+This mechanism is called base-displacement addressing, and it's what we'll be covering here.
+We start with a general register pointing to an area in memory.
+This becomes our base register, and the contents of that location becomes the base address.
+And this might be the program's starting address.
+The instructions, or operand is calculated as the base address plus that 12 bit offset, the displacement.
+Therefore, the calculated address, that's the base plus the displacement, is what's known as the effective address.
+When we're looking at an instruction, the base and displacement are encoded as a halfword, specifically called the addressing halfword.
+We've got four bits for the register.
+That's zero through Fox or decimal zero through 15.
+And that's in the B section for Base.
+And then we have 12 bits for the displacement 000 through Fox, Fox, Fox, or decimal zero through 4,096.
+That's the D section over here.
+If you're new to Assembler, this might sound overly complicated, but using base displacement addressing solves two important problems.
+One, it lets us encode the address using 16 bits instead of 64.
+And 2, the programs will work anywhere regardless of its location in memory.
+All the registers can be used as a base register except for register zero.
+Actually, register zero is never a base register.
+And if register zero is specified, the base address becomes zero regardless of what's in register zero and the effective address becomes whatever the displacement is.
+
+Lond displacement
+There's a good chance you saw all that information about base-displacement.
+And maybe you said, Hey, that sounds pretty clever.
+But it seems like even then it can only reach 4,096 and there's no way to reach addresses before the base address.
+Well, you'll be happy to know that two forms of addressing will handle those concerns.
+Long displacement and relative addressing, which we're going to handle right here.
+With long displacement and we get a 20-bit signed displacement.
+Conceptually, this is what it looks like with our base address, the S being the sign bit and the D being the displacement.
+This extends the addressability from 4 KB to one megabyte.
+So it can go from hexadecimal 80,000 up to Fox, Fox, Fox, Fox, fox.
+That's 512 KB before and after the base address.
+To better visualize this, Here's our 12-bit base displacement with a four Kilobyte addressable space.
+And here's our long displacement on the right with a 20-bit displacement, 1 MB in total, 512 KB in either direction.
+Sounds great.
+How do we use them? What we'll find is that many instructions have a long and a 12-bit displacement version as well as a 20-bit displacement version.
+There's a 12-bit ADD and a 20-bit ADD.
+Let's see what these look like.
+The good news is that we don't really need to concern ourselves with how long displacement works.
+Just that it does.
+But we're assembly programmers, we'd like to dig into those details.
+So here's the actual long displacement format.
+What happens is that a eight bits sign prefix is appended to the traditional addressing halfword.
+The traditional displacement is now called the displacement low or the DL.
+The new, signed prefix is called the, you guessed it, the displacement high or the DH.
+To compute the effective address, the displacement high is added to the displacement low, essentially being rearranged internally to form that 20 bit displacement.
+We've got three examples of long displacements to check out.
+Starting with this one.
+We've got registers seven with Two Able Zero Zero Zero in it.
+Sounds familiar.
+And instruction comes in saying 76018.
+And if we rearrange the high displacement and the low displacement, we get 186 Able Zero.
+That's 100,000 in decimal and it starts with one, which is between Zero and Fox.
+So we know it's a positive 100,000.
+That means the effective address is Two Able Zero Zero Zero plus 186 Able Zero, so 426A0.
+Another example, what happens when the displacement puts us before the base address? So we've got our Two Able Zero Zero Zero loaded in register seven and our instruction spells out the displacement as Easy 7960, that is a negative 100,000 in decimal.
+Because it's a negative number, we propagate the sign all the way to the left of the value making the displacement Fox, Fox, Fox, Fox...
+Easy 7960.
+Adding that to the base gives us 11960, which comes before the base register of Two Able Zero Zero Zero.
+Just like that.
+Remember how I said there's a long version of many instructions like ADD? Here's an example of that: Calc_Tax is saying to Add Tax to R3 and that tick mark there it means to do the long version of it.
+Our operand has a 20-bit displacement, so we switch those around.
+We get 04010, which checks out because the effective address of Tax is Two Easy 010.
+Subtract the base of Two Able Zero Zero Zero from that, and it gives us the same displacement value.
+So let's recap.
+Long displacement gives us a 1 MB addressing range from the base address.
+That's 256 larger than traditional base displacement.
+Long displacements are signed.
+So it covers 512 KB before and after the base address.
+In the next section, we'll look at using a third form of addressing operands known as relative addressing.
+
+Relative addressing
+We've talked about base-displacement, that's the base plus a twelve bit displacement.
+We've talked about long displacement, that's the base plus a 20-bit displacement, is time to learn about relative addressing.
+Both base and long displacement use a modifier to the base address.
+Well, relative addressing doesn't use a base address at all.
+Get this, instructions that use relative addressing have 16- or 32-bit operands which represent a signed displacement from the address of the instruction being executed.
+That signed displacement represents the number of halfwords before or after the instruction.
+That means the effective address is always even.
+It's always on a halfword boundary.
+This is a graphical representation of the reach we have using relative addressing.
+So we've got plus or minus 64 KB using the 16-bit relative addressing, plus or minus 4 GB using the 32-bit relative addressing.
+These are both relative or in relation to the instruction being executed.
+You can think of them as looking something like this.
+There's a signed digit up front and notice these say RI.
+That stands for Relative Immediate.
+An operand that's Relative Immediate means it's the actual value, not the register or the memory reference for something.
+Just like with long displacement, there are two versions of many instructions made specifically for use with relative addressing.
+So there's Jump, jump long.
+So right here, when we jump to Calc_Tax, it gets assembled to jump 103 Dog.
+Why 103 Dog, you might ask? Because Two Charlie 080, (got that?) minus 2A006 equals 207A.
+And because we're going by halfwords 207A/2 is 103 Dog.
+It all makes sense though.
+It is a little clunky, but we won't have to do it every time.
+This is something that the Assembler will put together for us based on our labels, as you've probably figured out by this example.
+So to recap, relative addressing doesn't use base registers.
+It uses 16- or 32-bit displacements.
+With 16-bit displacement having a 128 Kilobyte range, and 32-bit displacements having a 4 Gigabyte range.
+Displacement units are measured in halfwords every two bytes on an even address boundary.
+And displacements are relative to the instruction being executed.
+And displacements are signed.
+So we can go before or after the instruction.
+Up next, we'll learn about operand addressing, and we'll look at some actual instruction formats.
+That was a lot of words.
+How about a couple of examples? Let's say register seven contains Two Able Zero Zeros Zero, and our base-displacement is Zero Charlie Zero.
+An instruction might come in with the operand looking like this, Seven Zero Charlie Zero.
+So whatever we're doing, we'll want to start with the address in register seven plus the offset Two Able Zero Zero Zero, plus Zero Charlie Zero, equals...
+this is simply Two Able Zero Charlie Zero.
+That becomes our effective address.
+How about one more example? Same thing as before, but register seven contains Seven Eight Zero Zero Zero.
+Displacement is still Zero Charlie Zero.
+So if the operand is Seven Zero Charlie Zero, we're adding the base to the displacement and we get Seven Eight Zero Charlie Zero.
+Let's switch things up a little bit for our next example, because I think you've got this down.
+We've got register zero with this value in it.
+And the operand looks like this.
+So our offset is One Able Eight.
+The effective address is, well, the effective address is the same as the offset because when register zero is used, its contents are ignored and the effective address becomes whatever the displacement is.
+That was a bit of a trick question, but it's also important to remember the unique way that register zero works.
+Let's get back to our program for the fourth example.
+Register 12 gets loaded with the program's starting address Two Able Zero Zero Zero.
+Then we get an instruction to branch to Calc_Tax, which has an offset of 080.
+If the operand is Charlie 080 and the opcode is a branch, that's like a jump to statement.
+We'll take the contents of register 12 or C (Charlie), which is Two Able Zero Zero Zero.
+Add that to the offset 080, making our effective address Two Able 080.
+Perhaps most important thing to realize here is that we never need to calculate displacement manually.
+
+
+RS/RX instructions
+In this section we will talk about RS and RX format instructions.
+These are instructions where we've got a general register and some storage.
+And when we got a general register and indexed storage, we'll talk about exactly what that means very shortly.
+RS instructions occupy two halfwords, so in memory, they look like this.
+There's the opcode upfront than the first operand, a register.
+The second operand, the base address and the 12-bit displacement halfword.
+And then our third operand is a register.
+Now, you're probably wondering why the operands are in this order.
+It's not this way in all types, but because we want everything to line up neatly than those boundaries.
+In later examples, we'll see RS instructions where the third operand is not a register.
+Before we look at the next example, we need to know how to specify the base displacement, operand in Assembler.
+And, registers are easy, we just specify which one.
+The Assembler logic for base-displacement logic is displacement, and then in parentheses, the base register.
+An example, because we like examples, 255 bytes from the address at registered 10.
+Here's our Assembler code.
+In memory, that gets turned into this.
+Able is our register, register 10.
+Zero Fox Fox is 255.
+How about another example for an RS instruction? Load Multiple.
+Now, what Load Multiple does is it loads consecutive registers from consecutive fullwords in memory, one right after the other.
+The Assembler mnemonic for this is LM.
+The opcode is 98.
+98.
+So let's say we want to load registers 3, 4, 5, and 6 with the contents of four consecutive fullwords in memory.
+And the first fullword is that displacement 28 from base register 13.
+Our Assembler statement will look like this.
+LM Load Multiple then 3 comma 6 (for 3 through 6), and then 28, parentheses, 13 (for 28 from register 13).
+Just like that.
+And, for completeness, here's how it will look in memory.
+We'll start with the opcode, 98.
+First operand, 3 (for register 3).
+Third operand: register 6.
+And then our second operand, the base and displacement.
+Now, if this is starting to get a little bit weird, don't worry.
+It is a little bit weird, but here's the thing.
+We're covering this for completeness.
+Most of the time we won't need to think about base addresses and displacements because we'll use symbols.
+So if register 13 points to an area we've labeled "SAVEAREA", we can write code that's a lot more immediately meaningful, like this.
+Up next, RX instructions: register and indexed instructions.
+This is where it gets interesting because they're kind of like RS instructions, but with a fun little twist.
+An RX instructions starts with our opcode, then our first operand.
+Then our second operand has an extra register called the index.
+Then as you can see, we've got our base and displacement.
+Prior to index instructions we calculated the effective address by taking the base plus the displacement.
+With index instructions, we take the base plus the displacement plus the index.
+And these are meant for times when we want to iterate through a list of multiple items in a table or an array, or a list.
+So the base register points to the array's start and then the index traverses through those items.
+And if there's no index, it means...
+no index.
+Our syntax for this is: displacement and then parentheses, index register, comma, base register.
+So if we start with 255(7,10) That says from register 7, with a displacement of 255 decimal, index number 7.
+Alright? And then in memory it looks like this.
+There's the opcode, register one, and then our index, and then the base, and then the displacement.
+Let's do a little bit of addition.
+The Add instruction adds a storage forward to a register and puts the result in the register.
+The mnemonic is A or Able.
+The opcode is Five Able.
+If remember, we looked at another Add instruction before, but that was an RR, register to register instruction.
+We need a different type of Add when we're using indexed data.
+So if we want to add to register 3, the fullword at displacement 20 from register 5, then this is our instruction.
+Note that we're not using the index, so we're just setting it to zero.
+And it will end up looking like this in memory.
+Opcode.
+First operand, register 3, second operand, the index that's zero, and the second operand, the base-displacement.
+In the next section, we'll start looking at SI and SS instructions.
+
+
+SI/SS
+In this section, we'll be taking a look at SI and SS instructions, starting with SI instructions where one operand is storage and one is immediate.
+Instructions occupied two halfwords.
+One operand is the base displacement address, and the second operand is the immediate value.
+So if we want to move immediate, meaning we want to explicitly say copy from here to this address.
+We use the instruction MVI, opcode 92.
+So we might say MVI, 8(7),255 And we can interpret that to mean move the value of 255 (that's our immediate) to displacement 8 from register 7.
+The value of 255 is immediate.
+It's not a pointer to where the value is in memory.
+It's the value, 255.
+In memory, it looks like this: operation code 92.
+92.
+Then the second operand, the immediate value, and then the register and the offset.
+Now, we're not going to fully dive into Assembler notation until the next section.
+But let's take a peek at least because I know you're curious.
+Suppose we want to use the MVI command to move the character A to a location in storage.
+Like how, you know, you're going to ace this course and we're just going to allocate that A for you, so just like that, we're moving an A into a place so it can get recorded.
+Character A is C1, Charlie One in hex, 193 in decimal.
+We know this from the first few sections where we were converting data back-and-forth.
+That gives us this instruction: MVI, 8(7),193 Since we know it's an A, we can write it like this.
+C'A', and that will load the A.
+Or if we want to do it in hex, we can say X'C1'.
+That will load the exact same thing once our code gets assembled.
+It's a user preference and ease of readability option.
+And if we want to, for some reason, do it in binary, we could say MVI 8(7), B, single quote, 1100 0001, single quote.
+Options! They're good to have.
+All of these instructions generate the exact same machine instructions.
+It's gonna look like a C1 in there.
+Now that we know about that little trick we'll be using it for the rest of the course.
+So instead of saying hex Fox Fox, we'll say X'FF'.
+Same for binary: instead of binary 1100, we'll say B'1100'.
+No need to translate texts.
+We'll just say C, and then, for the text, we'll put that in the single quotes.
+When you don't see a prefix or single quotes, we can assume its decimal.
+Onto those SS instructions, where we've got two storage addresses.
+These occupy three halfwords and in memory they look like this.
+We've got the opcode.
+And then the first operand, which is the length.
+This specifies the length of the first operand.
+Then after that we've got the bases and displacements for our two storage locations.
+To specify the length operand, we'll use this format, displacement, parentheses, length, comma base register.
+The length field, L, is an 8-bit field, so it can go 0 to 255.
+The minimum length is one, making the maximum length 256.
+If we make a mistake and set it to length of zero, it'll copy one byte anyway.
+So don't do that unless you really mean to.
+Let's take a look at the SS Move instruction.
+SS Move can be used to copy up to 256 bytes from the second operand to the first.
+As you've probably guessed, the number of bytes moved is determined by the 8-bit length field.
+Our mnemonic is MVC and the opcode is Dog Two, D2.
+Therefore, if we want to move 48 bytes from one location to another, where the first operand, the destination operand is at displacement 16 from register 3, and the source is displacement 20 from register 4, we would code up something like this.
+Note that in the first section here we've specified the base and displacement plus the length.
+In memory.
+Our instruction looks like this.
+There's our opcode, the operand length, the first operand for storage, and then the second operand for storage.
+Moving right along, RXY, one register, one long displacement address.
+I will cover that in the next section.
+Our programs are really just doing what's written in this box here, although we'll get into the actual syntax in a bit.
+Once we write up the structure, the Assembler will write the actual instructions for us.
+In summary, base displacement addressing provides a compact way of representing operand addresses in just 16 bits and providing for location independent instructions.
+It's been around since the first mainframes, the S/360, which is the first ancestor of today's modern z/Architecture systems.
+It's not without its limitations though, which is something we'll get into in the next section.
+
+RXI/RI
+In this section we'll be covering RXY and RI instructions.
+RXY: one register, one long displacement address.
+Let's get this.
+These occupy three halfwords and the structure is slightly more complicated.
+So we'll approach it in two stages.
+This has an opcode and an operation mode, and they're located at opposite ends of the instruction, both eight bytes.
+The first operand, the register, comes after the opcode upfront.
+That leaves us with the second operand.
+Let's look at that.
+This should look fairly similar to the long displacement that we saw in the last unit, except it also has an index register.
+So there's the index, the base, the displacement low, and the displacement high.
+Altogether, here's the super crowded picture and now you can see why we wanted to do this in two stages.
+Apart from having a long displacement operand RXY instructions behave just like RX instructions.
+In fact, if we look at them like this, we can see that the first four bytes are actually the same.
+It's just the extra bits that make it an RXY instruction.
+That's what makes it different.
+And we've seen the Add instruction in both RR and RX formats.
+How about in the RXY format? Gotta collect them ll, right? Our mnemonic is AY, the Y indicating long.
+And our opcode is E35A.
+That's a longer opcode than we're used to seeing.
+That's an extended opcode with the second half there, that's our mode.
+So if we want to add to register 3 the fullword at displacement 20,000 from register 5.
+We won't be able to use the RX type Add because the displacement exceeds 4095 bytes.
+But the Assembler source statement is going to be very similar to our RX example.
+It'll be AY 3,20000, and then in parentheses, (0,5) because we're not using the index, just like in the RX example.
+And in memory, we break that operation code out to the beginning and the end again.
+Our first operand is the register, that's 3.
+Second operand is the base and index that's registered 5 with an index of zero.
+And then the displacement low.
+And then here's the displacement high.
+Finally, we made it to the RI instruction format for when one operand is a register and one is a 16-bit relative address.
+RI instructions occupied two halfwords and the second operand is an immediate value.
+There are three variants of the RI instructions.
+And for right now, we're just going to focus on the type where the immediate value is a relative address.
+The other two will look at as needed.
+Let's get a look at that instruction format.
+You can see the RI instructions have an extended 12-bit operation code.
+Not quite as drastic as the RXY instructions but still split apart like that.
+Then we've got this concept of a four bit mask, which controls the instruction operation.
+I know more on that in a bit.
+As we mentioned a few seconds ago, the second operand is a signed displacement, which is the number of halfwords from the instruction itself.
+We've briefly mentioned the jump command before.
+It's a form of the branch command that uses relative addressing instead of base displacement.
+It's mnemonic, is J, opcode A74.
+And notice its 12-bit extended opcode there.
+Let's see it from another angle.
+So if we wanted to jump to the instruction at 8,000 bytes from this one, this very instruction, the Assembler source statement is simply J, star or asterisk, plus 8000.
+The star means here or this location.
+In memory, it looks like this with the opcode upfront and over here with the four bitmask in the middle and the second operand, the relative immediate address at the end.
+The relative address will get calculated by the Assembler.
+But just for completeness, if we take 8,000 bytes divided in half because we're talking about halfwords here.
+That's 4,000 halfwords.
+And 4,000 decimal is 0FA0 in hex.
+That is our relative address.
+And that concludes the introduction to the elements of the IBM z architecture which an Assembler application programmer is going to work with.
+Now, I'm fully aware that that felt like a lot.
+And yet somehow it's not the complete picture.
+Remember, we're trying to build up that foundation, which we can then build upon.
+So we'll be learning more elements as we go on.
+But if you're feeling good right now, you should keep feeling good.
+And if you're still a little fuzzy about some areas, test yourself with the quizzes.
+Go back and look at the instruction formats and their examples.
+And it will all start to come together, I promise.
+In the next section, we'll get into the rules of the Assembler language.
